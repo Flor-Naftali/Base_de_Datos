@@ -1,8 +1,5 @@
-create database Practica4
-go 
-
-use Practica4
-go 
+use Prueba_entornos
+go
 
 create table categoria (
 	idcat int not null,
@@ -27,7 +24,6 @@ create table producto(
 	references categoria (idcat,numero)
 )
 go
-
 select * from categoria
 
 --Agregar
@@ -43,3 +39,25 @@ values (3,'Vinos y Licores')
 
 insert into categoria
 values (4,'Ropa')
+
+insert into categoria(idcat,descripcion)
+values (5,'Linea Blanca')
+
+insert into categoria(descripcion,idcat)
+values ('Electronicos',6)
+
+-- Insertar varios registros a la vez
+insert into categoria
+values (7,'Carnes Buenas'),
+		(8,'Dulces'),
+		(9,'Panaderia'),
+		(10,'Salchichoneria')
+
+--insertar apartir de una consulta 
+
+select idcat,descripcion from categoria
+
+create table categoriaCopia(
+		idcat int not null primary key,
+		nombre varchar(100) not null
+		)
